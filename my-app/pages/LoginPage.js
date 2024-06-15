@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     },
     headerContainer: {
         position: 'absolute',
-        top: 80,
+        top: 40,
         left: 20,
         alignItems: 'flex-start',
         marginBottom: 20,
@@ -86,7 +86,8 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         alignItems: 'center',
         paddingVertical: 30,
-        top: 40,
+        top: 40
+        ,
     },
     input: {
         borderWidth: 1,
