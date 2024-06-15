@@ -1,8 +1,8 @@
 import React from 'react';
-import LoginPage from "./pages/LoginPage";
+import AppNavigator from "./Navigation/AppNavigator";
 
 export default function App() {
     return (
-        <LoginPage/>
+        <AppNavigator/>
     );
 }

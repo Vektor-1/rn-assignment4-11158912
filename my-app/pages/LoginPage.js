@@ -5,7 +5,7 @@ const Apple = require('../assets/Apple.png');
 const Google = require('../assets/Google.png');
 const Facebook = require('../assets/Facebook.png');
 
-export default function LoginPage() {
+export default function LoginPage({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.headerContainer}>
@@ -24,7 +24,7 @@ export default function LoginPage() {
                 />
             </View>
             <View style={styles.loginButtonContainer}>
-                <Button style={styles.loginButton} title={"Login"} onPress={() => {}}>Submit</Button>
+                <Button title={"Login"} onPress={() => navigation.navigate('Home')}>Submit</Button>
             </View>
             <View style={styles.Group288}>
                 <View style={styles.line1} />
