@@ -170,6 +170,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         padding: 20,
+        top: 10,
     },
     imageContainer: {
         width: 60,
