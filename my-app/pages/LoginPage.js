@@ -1,11 +1,22 @@
-import React from 'react';
-import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from 'react-native';
 
-const Apple = require('../assets/Apple.png');
-const Google = require('../assets/Google.png');
-const Facebook = require('../assets/Facebook.png');
+const Apple = require('../src/Images/CardImages/Apple.png');
+const Google = require('../src/Images/CardImages/Google.png');
+const Facebook = require('../src/Images/CardImages/Facebook.png');
 
 export default function LoginPage({ navigation }) {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+
+    const handleLogin = () => {
+        if (name === 'Eric Atsu' && email === 'eric@gmail.com') {
+            navigation.navigate('Home');
+        } else {
+            alert('Invalid credentials');
+        }
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.headerContainer}>
@@ -15,16 +26,25 @@ export default function LoginPage({ navigation }) {
             </View>
             <View style={styles.Group48}>
                 <TextInput
-                    placeholder={"Name"}
+                    placeholder="Name"
+                    value={name}
+                    onChangeText={setName}
                     style={styles.input}
                 />
                 <TextInput
-                    placeholder={"Email"}
+                    placeholder="Email"
+                    value={email}
+                    onChangeText={setEmail}
                     style={[styles.input, { marginTop: 10 }]}
                 />
             </View>
             <View style={styles.loginButtonContainer}>
-                <Button title={"Login"} onPress={() => navigation.navigate('Home')}>Submit</Button>
+                <TouchableOpacity
+                    style={styles.loginButton}
+                    onPress={handleLogin}
+                >
+                    <Text style={styles.loginButtonText}>Login</Text>
+                </TouchableOpacity>
             </View>
             <View style={styles.Group288}>
                 <View style={styles.line1} />
@@ -79,15 +99,14 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         fontSize: 14,
         color: '#0D0D26',
-        opacity: 50,
+        opacity: 0.5,
     },
     Group48: {
-        width: "100%",
-        flexDirection: "column",
+        width: '100%',
+        flexDirection: 'column',
         alignItems: 'center',
         paddingVertical: 30,
-        top: 40
-        ,
+        top: 40,
     },
     input: {
         borderWidth: 1,
@@ -98,35 +117,45 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
     },
     loginButtonContainer: {
-        backgroundColor: 'blue',
         top: 28,
         width: 327,
         height: 56,
         borderRadius: 10,
         marginTop: 10,
         alignSelf: 'center',
+    },
+    loginButton: {
+        backgroundColor: 'blue',
+        height: '100%',
         justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+    },
+    loginButtonText: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: '600',
     },
     line1: {
         width: 100,
         height: 0.5,
         borderWidth: 0.5,
-        borderColor: "rgba(175,176,182,1)",
+        borderColor: 'rgba(175,176,182,1)',
     },
     Group288: {
         top: 55,
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         width: '90%',
         paddingHorizontal: 20,
         marginVertical: 20,
     },
     OrContinueWith: {
-        color: "rgba(175,176,182,1)",
+        color: 'rgba(175,176,182,1)',
         fontSize: 13,
         lineHeight: 13,
-        textAlign: "center",
+        textAlign: 'center',
     },
     buttonContainer: {
         top: 88,
